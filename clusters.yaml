@@ -1,0 +1,5 @@
+- Account: cluster
+  AutoDeploy: false
+  Name: neocomms
+  Provider: kubernetes
+  Src: neocomms.yaml
