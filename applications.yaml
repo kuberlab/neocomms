@@ -1,0 +1,45 @@
+- charts:
+  - clusters:
+    - neocomms
+    configuration:
+      values:
+        global:
+          useRBAC: true
+        mlboard:
+          Image:
+            Name: kuberlab/mlboard
+            Tag: 3.6.3
+          config:
+            dealer_insecure: true
+            dealer_limits: true
+            disallow_serving_gpu: false
+            disallow_ui_gpu: false
+            storage:
+              className: cephfs
+          cron:
+            enabled: false
+          fetching:
+            pattern: 0 * * * *
+            prometheusInterval: 60m
+          git:
+            persistence:
+              accessMode: ReadWriteOnce
+              fromProvider: true
+              size: 10Gi
+              storageClass: ceph-rbd
+              volume: null
+          nodeSelector:
+            enabled: false
+            labels:
+              mlboard: mlboard
+          postgres:
+            persistence:
+              accessMode: ReadWriteOnce
+              fromProvider: true
+              size: 10Gi
+              storageClass: ceph-rbd
+              volume: null
+    name: mlboard
+    src: https://github.com/kuberlab-catalog/ml-board/
+    version: 3.2.10
+  name: kuberlab
