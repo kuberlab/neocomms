@@ -8,7 +8,7 @@
         mlboard:
           Image:
             Name: kuberlab/mlboard
-            Tag: 3.6.3
+            Tag: 3.6.6
           config:
             dealer_insecure: true
             dealer_limits: true
